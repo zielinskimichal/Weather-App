@@ -1,0 +1,87 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.app-container {
+  width: 100vw;
+  height: 100vh;
+  background: repeating-linear-gradient(130deg, pink, blue);
+  display: flex;
+  flex-direction: column;
+}
+.current-section {
+  margin-top: 5%;
+  height: 50%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+}
+.future-section {
+  height: 50%;
+}
+.today-header {
+  font-size: 50px;
+  color: white;
+}
+.current-temperature,
+.today-timezone,
+.today-description {
+  font-size: 40px;
+  color: white;
+  padding: 15px;
+}
+.future-section {
+  display: flex;
+  flex-flow: row nowrap;
+}
+.slideBar {
+  min-height: 100px;
+  min-width: 100%;
+  background: transparent;
+  position: fixed;
+  transform: translate(0, -100px);
+  transition: 1s transform;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.shown {
+  transform: translate(0, 0);
+  transition: 1s transform;
+}
+.errorMessage {
+  font-size: 30px;
+  color: white;
+}
+.cityName {
+  background: none;
+  border: none;
+  border-bottom: solid white 1px;
+  margin-left: 2%;
+  color: white;
+  font-size: 30px;
+  text-align: center;
+}
+.getWeather {
+  display: inline-block;
+  background: none;
+  border: none;
+  color: white;
+  margin-left: 3%;
+  font-size: 30px;
+  cursor: pointer;
+}
+.future-section {
+  margin-top: 5%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.day {
+  padding: 2%;
+  display: flex;
+  color: white;
+  font-size: 20px;
+  flex-direction: column;
+}
