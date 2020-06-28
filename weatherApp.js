@@ -51,6 +51,7 @@ function dataFetching(link) {
 const apiDescriptionToSkycons = (description) => {
   let id = Math.floor(description / 100);
   if (description == 800) return "clear-day";
+  console.log(id);
   switch (id) {
     case 2:
       return "thunder-rain";
@@ -88,6 +89,11 @@ function setForecast(data) {
   for (let i = 1; i < 8; i++) {
     week.push(oneDay(data, i));
   }
+  let counter = 1;
+  week.forEach((day) => {
+    setDay(counter, day);
+    counter++;
+  });
 }
 
 function oneDay(data, number) {
@@ -122,4 +128,15 @@ const getDayName = (date) => {
     case 6:
       return "Saturday";
   }
+};
+
+const setDay = (dayNumber, day) => {
+  let whichDay = ".day__name" + dayNumber;
+  let whichTemperature = ".day__temperature" + dayNumber;
+  document.querySelector(whichDay).innerHTML = day.name;
+  document.querySelector(whichTemperature).innerHTML =
+    Math.round((day.temp - 273.15) * 10) / 10 + "°C";
+  let skycons = new Skycons({ color: "white" });
+  skycons.add(`icon${dayNumber + 1}`, day.skyConsId);
+  skycons.play();
 };
