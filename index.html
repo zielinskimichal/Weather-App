@@ -3,22 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles.css" />
-
     <title>Weather App</title>
   </head>
   <body>
-    <div class="slideBar">
-      <span class="errorMessage"
-        >We failed to get your location, please insert city name:</span
-      ><input
-        type="text"
-        class="cityName"
-        placeholder="Your closest city name"
-      />
-      <button class="getWeather">Get weather!</button>
-    </div>
+    
     <div class="app-container">
+      <div class="slideBar">
+        <span class="errorMessage"
+          >We failed to get your location, please insert city name:</span
+        ><input
+          type="text"
+          class="cityName"
+          placeholder="Your closest city name"
+        />
+        <button class="getWeather">Get weather!</button>
+      </div>
       <div class="current-section">
         <h3 class="today-header">Today:</h3>
         <span class="today-timezone"></span>

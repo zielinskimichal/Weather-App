@@ -11,14 +11,17 @@ const proccessWithNoLoc = (error) => {
     cityName = document.querySelector(".cityName").value;
     slideBar.classList.remove("shown");
     fetch(
-      `https://maps.googleapis.com/maps/api/geocode/json?address=${cityName}&key=AIzaSyCfFMORK5J8b8vQdlbxPNqe7Png35YUarU`
+      `https://us1.locationiq.com/v1/search.php?key=pk.d33d38e93a687f00cf301bff738789b2&q=${cityName}&format=json`
     )
       .then((response) => {
+        
         return response.json();
       })
       .then((response) => {
-        let lat = response.results[0].geometry.location.lat;
-        let long = response.results[0].geometry.location.lng;
+       
+        let lat = response[0].lat;
+        
+        let long = response[0].lon;
         let link = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude=hourly,minutely&appid=140610dc9e33690708dc04f1db3e166b`;
         dataFetching(link);
       });
@@ -43,7 +46,6 @@ function dataFetching(link) {
       return response.json();
     })
     .then((response) => {
-      console.log(response);
       application(response);
     });
 }
@@ -51,7 +53,6 @@ function dataFetching(link) {
 const apiDescriptionToSkycons = (description) => {
   let id = Math.floor(description / 100);
   if (description == 800) return "clear-day";
-  console.log(id);
   switch (id) {
     case 2:
       return "thunder-rain";
@@ -109,9 +110,9 @@ function oneDay(data, number) {
 
 const getDayName = (date) => {
   let theDay = new Date(date * 1000);
-  console.log(theDay);
+
   let dayName = theDay.getDay();
-  console.log(dayName);
+
   switch (dayName) {
     case 0:
       return "Sunday";

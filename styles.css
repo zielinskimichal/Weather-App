@@ -1,11 +1,14 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: "Open Sans", sans-serif;
+}
+body {
+  min-width: 100vw;
+  min-height: 100vh;
+  background: repeating-linear-gradient(130deg, pink, blue);
 }
 .app-container {
-  width: 100vw;
-  height: 100vh;
-  background: repeating-linear-gradient(130deg, pink, blue);
   display: flex;
   flex-direction: column;
 }
@@ -37,18 +40,21 @@
 }
 .slideBar {
   min-height: 100px;
-  min-width: 100%;
+  width: 100%;
   background: transparent;
-  position: fixed;
+  padding-left: 1%;
+  padding-right: 1%;
+  padding-top: 1%;
   transform: translate(0, -100px);
   transition: 1s transform;
-  display: flex;
   justify-content: center;
   align-items: center;
+  display: none;
 }
 .shown {
   transform: translate(0, 0);
   transition: 1s transform;
+  display: flex;
 }
 .errorMessage {
   font-size: 30px;
@@ -71,6 +77,9 @@
   margin-left: 3%;
   font-size: 30px;
   cursor: pointer;
+  border: 1px solid white;
+  padding: 10px;
+  border-radius: 20px;
 }
 .future-section {
   margin-top: 5%;
@@ -79,6 +88,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  flex-flow: row wrap;
 }
 .day {
   padding: 2%;
@@ -87,6 +97,7 @@
   font-size: 20px;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 canvas {
   max-width: 64px;
@@ -95,4 +106,28 @@ canvas {
 }
 .day > span {
   padding: 0.3em;
+}
+.cityName::placeholder {
+  color: rgb(207, 207, 207);
+}
+
+@media (max-width: 600px) {
+  .shown {
+    flex-direction: column;
+    width: 100%;
+  }
+  .errorMessage {
+    text-align: justify;
+    width: 97%;
+    font-size: 1.5rem;
+    margin-right: 4%;
+    margin-left: 4%;
+    margin-top: 2%;
+  }
+  .cityName {
+    margin-top: 0.3em;
+  }
+  .getWeather {
+    margin-top: 0.6em;
+  }
 }
